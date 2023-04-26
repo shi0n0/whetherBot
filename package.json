@@ -1,0 +1,23 @@
+{
+  "name": "whetherbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shi0n0/whetherBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shi0n0/whetherBot/issues"
+  },
+  "homepage": "https://github.com/shi0n0/whetherBot#readme",
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.62"
+  }
+}
