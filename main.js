@@ -18,37 +18,29 @@ function sendWeatherToSlack() {
       "payload": JSON.stringify(payload)
     };
   
-    // トリガーを設定
-    var now = new Date();
-    var eightAM = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8);
-    ScriptApp.newTrigger("sendWeatherToSlack")
-      .timeBased()
-      .at(eightAM)
-      .create();
-  
     UrlFetchApp.fetch(slackUrl, options);
   }
   
-  function addTime() {
+function addTime() {
   const functionName = 'sendWeatherToSlack';
-  const date = new Date();
-  const time = '09:30';
-  date.setHours(...time.split(':'));
-  setTrigger(functionName, date);
-}
+  const hour = 9;
+  const minute = 30;
 
-function deleteTrigger(functionName) {
+  // 現在のトリガーをすべて削除する
   const triggers = ScriptApp.getProjectTriggers();
-  triggers.forEach(trigger => {
-    if (trigger.getHandlerFunction() !== functionName) return;
-    ScriptApp.deleteTrigger(trigger);
-  })
-}
+  for (const i in triggers) {
+    if (triggers[i].getHandlerFunction() === functionName) {
+      ScriptApp.deleteTrigger(triggers[i]);
+    }
+  }
 
-//時間を指定してトリガーを設定
-function setTrigger(functionName, date) {
-  ScriptApp.newTrigger(functionName).
-    timeBased().
-    at(date).
-    create();
+  // 新しいトリガーを設定する
+  const date = new Date();
+  date.setHours(hour);
+  date.setMinutes(minute);
+  date.setSeconds(0);
+  ScriptApp.newTrigger(functionName)
+      .timeBased()
+      .at(date)
+      .create();
 }
