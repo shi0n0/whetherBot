@@ -20,7 +20,10 @@ OpenWeatherMap APIを使用して、指定された都市の現在の天気を�
 2. npm installしてnode_moduleを作成してください
 3. clasp login → clasp createでstandaloneを選択します
 4. 作成されたらclasp pushをします
-5. 実行をすれば動きます
+5. addTime関数を実行します
+6. トリガー設定に移動し、右下からaddTime関数を規定の時間の前に設定します。
+7. 規定の時間前のaddTime関数と規定の時間のsendWeatherToSlackが設定されているのを確認します
+8. 規定の時間になると自動で天気を知らせてくれます
 
 ## 作った理由
 学校でSlackのBotが欲しいと前々から聞いてきて作り方がわからなかったので放置していたが、最近作り方を知ったのでとりあえず何かを作りたいと思い作成しました。
