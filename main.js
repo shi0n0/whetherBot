@@ -9,7 +9,8 @@ function sendWeatherToSlack() {
   var temperature = Math.round(data.main.temp - 273.15);
   var message = "今日の" + city + " の天気は" + weather + "です\n気温は" + temperature + "度になるでしょう。";
   
-  var slackUrl = "https://hooks.slack.com/services/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";
+  var slackUrl = PropertiesService.getScriptProperties().getProperty('SLACK_WEBHOOK_URL');
+
   var payload = {
     "text": message
   };
