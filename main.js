@@ -1,7 +1,8 @@
 function sendWeatherToSlack() {
   var api_key = "d87475d53bc05bed8e20e9e0c1d08206";
   var city = "Tokyo";
-  var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api_key;
+  var lang = "ja";
+  var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api_key + "&lang=" + lang;
   var response = UrlFetchApp.fetch(url);
   var json = response.getContentText();
   var data = JSON.parse(json);
